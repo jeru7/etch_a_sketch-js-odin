@@ -30,8 +30,8 @@ body {
 }
 
 .main {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   padding: 12px;
 }
 
@@ -43,7 +43,7 @@ body {
 .main__container {
   display: grid;
   grid-template-columns: 1fr 3fr;
-  height: 500px;
+  height: 80%;
   width: 850px;
   margin: 0 auto;
   margin-top: 8px;
@@ -155,10 +155,18 @@ body {
 }
 
 @media only screen and (max-width: 640px) {
+  .main__container {
+    grid-template-rows: 1fr 8fr;
+  }
+
   .buttonControls {
     width: fit-content;
     padding: 8px;
     font-size: 12px;
+  }
+
+  .main__canvas {
+    height: 80%;
   }
 }
 
@@ -166,9 +174,18 @@ body {
   .title {
     font-size: 20px;
   }
+
+  .main__container {
+    grid-template-rows: 1fr 10fr;
+  }
+
   .buttonControls {
     width: fit-content;
     padding: 8px;
     font-size: 8px;
+  }
+
+  .main__canvas {
+    height: 50%;
   }
 }
