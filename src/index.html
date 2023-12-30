@@ -7,22 +7,55 @@
     <title>Etch-A-Sketch</title>
   </head>
   <body>
+    <section class="popUpSizeSelector"></section>
+    <section class="popUpColorPicker"></section>
     <main class="main">
       <h1 class="title">Etch-A-Sketch</h1>
       <div class="main__container">
         <div class="main__controls">
-          <button class="main__controls__colorPicker buttonControls">
+          <button
+            class="main__controls__colorPicker buttonControls"
+            id="colorButton"
+          >
             Color
           </button>
-          <button class="main__controls__rgb buttonControls">RGB</button>
-          <button class="main__controls__neon buttonControls">Neon</button>
-          <button class="main__controls__eraser buttonControls">Eraser</button>
-          <button class="main__controls__clear buttonControls">Clear</button>
-          <div class="main__controls__sizeControl buttonControls">Size</div>
+          <button class="main__controls__rgb buttonControls" id="rgbToggler">
+            RGB
+          </button>
+          <button class="main__controls__neon buttonControls" id="neonToggler">
+            Neon
+          </button>
+          <button
+            class="main__controls__eraser buttonControls"
+            id="eraserButton"
+          >
+            Eraser
+          </button>
+          <button class="main__controls__clear buttonControls" id="clearButton">
+            Clear
+          </button>
+          <div
+            class="main__controls__sizeControl buttonControls"
+            id="sizeButton"
+          >
+            Size
+          </div>
         </div>
-        <div class="main__canvas"></div>
+        <div class="main__canvas">
+          <div class="main__canvas__grids">
+            <div class="gridColumn">
+              <div class="gridRow"></div>
+              <div class="gridRow"></div>
+            </div>
+            <div class="gridColumn">
+              <div class="gridRow"></div>
+              <div class="gridRow"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer class="footer"></footer>
+    <script src="/etch_a_sketch-js/js/main.js"></script>
   </body>
 </html>
