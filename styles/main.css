@@ -123,6 +123,93 @@ body {
   background-color: var(--fourth-color);
 }
 
+/* TODO: Styles for popup containers */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: none;
+}
+
+.popUpSizeSelector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border: 4px solid var(--third-color);
+  border-radius: 8px;
+  background-color: var(--main-color);
+  height: 280px;
+  width: 400px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}
+
+#closeButton {
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: 4px;
+  text-align: right;
+  color: rgb(192, 35, 35);
+}
+
+#closeButton:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.sizeInput {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.sizeInput h2 {
+  font-size: 60px;
+}
+
+.sizeInput input {
+  outline: none;
+  border: 2px solid var(--third-color);
+  border-radius: 4px;
+  color: var(--main-textColor);
+  background-color: var(--second-color);
+  height: 60px;
+  width: 200px;
+  font-size: 20px;
+  padding: 4px;
+  margin: 0 auto;
+}
+
+.sizeInput button {
+  border: 2px solid var(--fourth-color);
+  border-radius: 4px;
+  background-color: rgb(86, 156, 86);
+  outline: none;
+  font-size: 20px;
+  height: 40px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.sizeErrorMessage {
+  text-align: center;
+  color: rgb(192, 35, 35);
+  visibility: hidden;
+}
+
 /* Responsive layout */
 @media only screen and (max-width: 870px) {
   .title {
