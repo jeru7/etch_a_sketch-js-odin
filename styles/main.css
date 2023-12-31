@@ -135,7 +135,9 @@ body {
   display: none;
 }
 
-.popUpSizeSelector {
+/* SIZE SELECTOR STYLES */
+.popUpSizeSelector,
+.popUpColorPicker {
   display: none;
   flex-direction: column;
   align-items: center;
@@ -210,6 +212,20 @@ body {
   visibility: hidden;
 }
 
+/* COLOR PICKER STYLES */
+
+.popUpColorPicker h2 {
+  font-size: 60px;
+  text-align: center;
+}
+
+.popUpColorPicker input {
+  height: 100px;
+  width: 200px;
+  border: 2px solid var(--third-color);
+  background-color: var(--third-color);
+}
+
 /* Responsive layout */
 @media only screen and (max-width: 870px) {
   .title {
@@ -256,14 +272,14 @@ body {
     height: 80%;
   }
 
-  .popUpSizeSelector {
-    gap: 2px;
-    padding: 4px;
+  .popUpSizeSelector,
+  .popUpColorPicker {
     height: 210px;
     width: 300px;
   }
 
-  .sizeInput h2 {
+  .sizeInput h2,
+  .popUpColorPicker h2 {
     font-size: 30px;
   }
 
@@ -276,6 +292,11 @@ body {
   .sizeInput button {
     font-size: 20px;
     height: 30px;
+    width: 150px;
+  }
+
+  .popUpColorPicker input {
+    height: 80px;
     width: 150px;
   }
 }
@@ -299,7 +320,8 @@ body {
     height: 50%;
   }
 
-  .popUpSizeSelector {
+  .popUpSizeSelector,
+  .popUpColorPicker {
     top: 30%;
   }
 }
