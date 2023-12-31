@@ -27,6 +27,19 @@ colorBtn.addEventListener("click", () => {
   }
 });
 
+sizeBtn.addEventListener("click", () => {
+  if (
+    sizeSelectorModal.style.display == "none" ||
+    sizeSelectorModal.style.display == ""
+  ) {
+    sizeSelectorModal.style.display = "flex";
+    backDrop.style.display = "block";
+  } else {
+    sizeSelectorModal.style.display = "none";
+    backDrop.style.display = "none";
+  }
+});
+
 closeBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     const parentContainer = btn.parentNode;
