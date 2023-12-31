@@ -136,7 +136,7 @@ body {
 }
 
 .popUpSizeSelector {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   gap: 2px;
@@ -255,6 +255,29 @@ body {
   .main__canvas {
     height: 80%;
   }
+
+  .popUpSizeSelector {
+    gap: 2px;
+    padding: 4px;
+    height: 210px;
+    width: 300px;
+  }
+
+  .sizeInput h2 {
+    font-size: 30px;
+  }
+
+  .sizeInput input {
+    height: 40px;
+    width: 150px;
+    font-size: 20px;
+  }
+
+  .sizeInput button {
+    font-size: 20px;
+    height: 30px;
+    width: 150px;
+  }
 }
 
 @media only screen and (max-width: 430px) {
@@ -274,5 +297,9 @@ body {
 
   .main__canvas {
     height: 50%;
+  }
+
+  .popUpSizeSelector {
+    top: 30%;
   }
 }
