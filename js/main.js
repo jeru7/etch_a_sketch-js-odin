@@ -20,6 +20,7 @@ let colorValue = "#222424";
 colorPicker.addEventListener("input", () => {
   colorValue = colorPicker.value;
   colorBtn.style.color = colorValue;
+  colorBtn.style.borderColor = colorValue;
 });
 
 colorBtn.addEventListener("click", () => {
@@ -133,16 +134,94 @@ function changeColor(grid) {
 
     function colorGrid(box) {
       if (eraserOn) {
+        rgbMode = false;
+        neonMode = false;
         box.style.backgroundColor = "white";
+        box.style.borderColor = "#3e3f41";
       } else {
         box.style.backgroundColor = colorValue;
+      }
+
+      if (rgbMode) {
+        box.style.backgroundColor = `rgb(${randomNumber(
+          1,
+          255
+        )}, ${randomNumber(1, 255)}, ${randomNumber(1, 255)})`;
+      }
+
+      if (neonMode) {
+        box.style.borderColor = `rgb(${randomNumber(1, 255)}, ${randomNumber(
+          1,
+          255
+        )}, ${randomNumber(1, 255)})`;
       }
     }
   });
 }
 
+// neon function
+let neonMode = false;
+neonBtn.addEventListener("click", () => {
+  neonMode = !neonMode;
+  if (neonMode) {
+    neonBtn.style.backgroundColor = "#1b1c20";
+    neonColor();
+  } else {
+    neonBtn.style.backgroundColor = "#3e3f41";
+  }
+});
+
+function neonColor() {
+  setTimeout(() => {
+    let neon = `rgb(${randomNumber(150, 255)}, ${randomNumber(
+      150,
+      255
+    )}, ${randomNumber(150, 255)})`;
+    neonBtn.style.borderColor = neon;
+    neonBtn.style.color = neon;
+    if (neonMode) {
+      neonColor();
+    } else {
+      neonBtn.style.borderColor = "#222424";
+      neonBtn.style.color = "white";
+    }
+  }, 1000);
+}
+
+// rgb function
+let rgbMode = false;
+rgbBtn.addEventListener("click", () => {
+  rgbMode = !rgbMode;
+  if (rgbMode) {
+    rgbColor();
+  }
+});
+
+// rgb changes color function
+function rgbColor() {
+  setTimeout(() => {
+    let rgb = `rgb(${randomNumber(1, 255)}, ${randomNumber(
+      1,
+      255
+    )}, ${randomNumber(1, 255)})`;
+    rgbBtn.style.borderColor = rgb;
+    rgbBtn.style.color = rgb;
+    if (rgbMode) {
+      rgbColor();
+    } else {
+      rgbBtn.style.borderColor = "white";
+      rgbBtn.style.color = "white";
+    }
+  }, 1000);
+}
+
+// generate random number
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 //change color event delegates
-mainGridContainer.addEventListener("mousemove", (event) => {
+mainGridContainer.addEventListener("mouseover", (event) => {
   const target = event.target;
 
   if (target.classList.contains("gridRow")) {
