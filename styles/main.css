@@ -95,13 +95,11 @@ body {
 
 .main__canvas__grids {
   display: flex;
-  gap: 2px;
   height: 100%;
 }
 
 .gridColumn {
   display: flex;
-  gap: 2px;
   flex-direction: column;
   height: 100%;
   width: 100%;
@@ -110,12 +108,8 @@ body {
 .gridRow {
   height: 100%;
   width: 100%;
-  border: 1px solid black;
-}
-
-.gridRow:hover {
-  cursor: pointer;
-  background-color: antiquewhite;
+  background-color: white;
+  transition: background-color 0.3s;
 }
 
 .footer {
