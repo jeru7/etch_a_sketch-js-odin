@@ -13,7 +13,7 @@
   --fourth-color: #1b1c20;
 
   --main-text: "Rubik Doodle Shadow", sans-serif;
-  --main-textColor: #ffffff;
+  --main-textColor: white;
 }
 
 html,
@@ -84,8 +84,6 @@ body {
 }
 
 .buttonControls:hover {
-  color: var(--third-color);
-  background-color: var(--main-textColor);
   transform: scale(1.1);
 }
 

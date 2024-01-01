@@ -34,6 +34,9 @@ colorBtn.addEventListener("click", () => {
     colorPickerModal.style.display = "none";
     backDrop.style.display = "none";
   }
+
+  deactivateRgb();
+  deactivateErase();
 });
 
 sizeBtn.addEventListener("click", () => {
@@ -65,6 +68,7 @@ clearBtn.addEventListener("click", () => {
   const grid = document.querySelectorAll(".gridRow");
   grid.forEach((box) => {
     box.style.backgroundColor = "white";
+    box.style.borderColor = "#3e3f41";
   });
 });
 
@@ -75,6 +79,9 @@ eraserBtn.addEventListener("click", () => {
     eraserBtn.style.backgroundColor = "#3e3f41";
     eraserBtn.style.color = "white";
     eraserOn = false;
+    deactivateNeon();
+    deactivateRgb();
+    deactivateColor();
   } else {
     eraserBtn.style.backgroundColor = "white";
     eraserBtn.style.color = "#3e3f41";
@@ -95,7 +102,6 @@ function selectSize() {
 
   applySize(value);
 }
-
 // apply size function
 function applySize(size) {
   mainGridContainer.innerHTML = "";
@@ -161,16 +167,19 @@ function changeColor(grid) {
 
 // neon function
 let neonMode = false;
-neonBtn.addEventListener("click", () => {
+neonBtn.addEventListener("click", () => toggleNeon());
+function toggleNeon() {
   neonMode = !neonMode;
   if (neonMode) {
     neonBtn.style.backgroundColor = "#1b1c20";
     neonColor();
+    deactivateErase();
   } else {
     neonBtn.style.backgroundColor = "#3e3f41";
+    neonBtn.style.borderColor = "#222424";
   }
-});
-
+}
+// neon styles function
 function neonColor() {
   setTimeout(() => {
     let neon = `rgb(${randomNumber(150, 255)}, ${randomNumber(
@@ -194,9 +203,10 @@ rgbBtn.addEventListener("click", () => {
   rgbMode = !rgbMode;
   if (rgbMode) {
     rgbColor();
+    deactivateColor();
+    deactivateErase();
   }
 });
-
 // rgb changes color function
 function rgbColor() {
   setTimeout(() => {
@@ -209,7 +219,7 @@ function rgbColor() {
     if (rgbMode) {
       rgbColor();
     } else {
-      rgbBtn.style.borderColor = "white";
+      rgbBtn.style.borderColor = "#222424";
       rgbBtn.style.color = "white";
     }
   }, 1000);
@@ -230,3 +240,31 @@ mainGridContainer.addEventListener("mouseover", (event) => {
     changeColor(gridRow);
   }
 });
+
+// deactivate function
+function deactivateColor() {
+  colorBtn.style.color = "white";
+  colorBtn.style.borderColor = "#222424";
+  colorBtn.style.backgroundColor = "#3e3f41";
+}
+
+function deactivateNeon() {
+  neonMode = false;
+  neonBtn.style.color = "white";
+  neonBtn.style.borderColor = "#222424";
+  neonBtn.style.backgroundColor = "#3e3f41";
+}
+
+function deactivateErase() {
+  eraserOn = false;
+  eraserBtn.style.color = "white";
+  eraserBtn.style.borderColor = "#222424";
+  eraserBtn.style.backgroundColor = "#3e3f41";
+}
+
+function deactivateRgb() {
+  rgbMode = false;
+  rgbBtn.style.color = "white";
+  rgbBtn.style.borderColor = "#222424";
+  rgbBtn.style.backgroundColor = "#3e3f41";
+}
